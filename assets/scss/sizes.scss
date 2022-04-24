@@ -1,0 +1,63 @@
+:root {
+  --m_header: 100px 200px 0 200px;
+  --m_about: 45px 25% 0 25%;
+  --m_blog: 0 10%;
+  --m_blog-title: 50px 5%;
+  --m_blogpost-title: 75px 22% 50px 22%;
+  --m_blogpost-titleImg: 0 12% 45px 12%;
+  --m_content: 0 25%;
+  --m_blogpost-categories: 50px 25%;
+  --m_default: 45px 0 0 0;
+  --m_home-homeInfo: 60px 14% 10px 14%;
+  --m_home-title: 50px 0 45px 10%;
+  --m_home-line: 0 14%;
+  --m_home-portfolioWrapper: 0 2%;
+  --m_portfolio: 0 2%;
+  --m_portfolio-title: 50px 15%;
+  --m_portfoliopost-titleImg: 0 2% 45px 2%;
+  --m_footer: 50px 0 0 0;
+  --p_footer: 25px 25% 40px 25%;
+}
+
+@media only screen and (max-width: 1150px) {
+  :root {
+    --m_header: 50px 100px 0 100px;
+    --m_about: 45px 10% 0 10%;
+    --m_blog: 0 30px;
+    --m_blog-title: 50px 5%;
+    --m_blogpost-title: 75px 10% 50px 10%;
+    --m_blogpost-titleImg: 0 5% 45px 5%;
+    --m_content: 0 10%;
+    --m_blogpost-categories: 50px 25%;
+    --m_default: 45px 0 0 0;
+    --m_home-homeInfo: 60px 14% 10px 14%;
+    --m_home-title: 50px 0 45px 10%;
+    --m_home-line: 0 14%;
+    --m_home-portfolioWrapper: 0 2%;
+    --m_portfolio: 0 2%;
+    --m_portfolio-title: 50px 15%;
+    --m_portfoliopost-titleImg: 0 2% 45px 2%;
+    --m_footer: 50px 0 0 0;
+    --p_footer: 25px 25% 40px 25%;
+  }
+}
+
+$m_header: var(--m_header);
+$m_about: var(--m_about);
+$m_blog: var(--m_blog);
+$m_blog-title: var(--m_blog-title);
+$m_blogpost-title: var(--m_blogpost-title);
+$m_blogpost-titleImg: var(--m_blogpost-titleImg);
+$m_content: var(--m_content);
+$m_blogpost-categories: var(--m_blogpost-categories);
+$m_default: var(--m_default);
+$m_home-homeInfo: var(--m_home-homeInfo);
+$m_home-title: var(--m_home-title);
+$m_home-line: var(--m_home-line);
+$m_home-portfolioWrapper: var(--m_home-portfolioWrapper);
+$m_portfolio: var(--m_portfolio);
+$m_portfolio-title: var(--m_portfolio-title);
+$m_portfoliopost-title: var(--m_blogpost-title);
+$m_portfoliopost-titleImg: var(--m_portfoliopost-titleImg);
+$m_footer: var(--m_footer);
+$p_footer: var(--p_footer);

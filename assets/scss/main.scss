@@ -1,0 +1,242 @@
+$transition: all 200ms cubic-bezier(.46, .03, .52, .96);
+
+@use "sass:math";
+
+@import 'colors';
+@import 'sizes';
+@import 'animations';
+
+
+@import 'header';
+@import 'footer';
+@import 'blog';
+@import 'blogpost';
+@import 'syntax_highlighting';
+@import 'portfolio';
+@import 'portfoliopost';
+@import 'about';
+@import 'home';
+@import 'default';
+
+@import 'glitch';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: inherit;
+    font-size: 18px;
+}
+
+:root{
+    white-space: nowrap;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $bg1;
+    white-space: normal;
+}
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    font-style: normal;
+    text-decoration: none;
+}
+
+p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+
+.content {
+    h1 {
+        margin: 25px 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 45px;
+        font-weight: 800;
+        font-style: normal;
+        text-decoration: none;
+        color: $text1_1;
+    }
+
+    h2 {
+        margin: 15px 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 30px;
+        font-weight: 800;
+        font-style: normal;
+        text-decoration: none;
+        color: $text2;
+    }
+
+    h3 {
+        margin: 10px 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        font-weight: 800;
+        font-style: normal;
+        text-decoration: none;
+        color: $text2;
+    }
+
+    h4 {
+        margin: 7px 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 21px;
+        font-weight: 800;
+        font-style: normal;
+        text-decoration: none;
+        color: $text3;
+    }
+
+    h5 {
+        margin: 5px 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 21px;
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: none;
+        color: $text3_1;
+    }
+
+    p {
+        margin: 20px 0;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 21px;
+        line-height: 1.5;
+        text-decoration: none;
+        color: $text3;
+    }
+
+    ul {
+        li {
+            margin: 5px 0 5px 15px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 21px;
+            line-height: 1.5;
+            text-decoration: none;
+            color: $text3;
+        }
+    }
+
+    ol {
+        li {
+            margin: 5px 0 5px 15px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 21px;
+            line-height: 1.5;
+            text-decoration: none;
+            color: $text3;
+        }
+    }
+
+    a {
+        font-family: inherit;
+        font-style: inherit;
+        font-weight: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        text-decoration: underline;
+        color: inherit;
+    }
+
+    em {
+        font-family: inherit;
+        font-style: italic;
+        font-weight: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        text-decoration: inherit;
+        color: inherit;
+    }
+
+    blockquote {
+        border-left: 2px solid $text1;
+        padding: 2px 0 2px 15px;
+        margin: 20px 0 20px 15px;
+
+        p {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 25px;
+            line-height: 1.3;
+            text-decoration: none;
+            color: $text3;
+        }
+    }
+
+    strong {
+        font-family: inherit;
+        font-style: inherit;
+        font-weight: 800;
+        font-size: inherit;
+        line-height: inherit;
+        text-decoration: inherit;
+        color: $text1_1;
+    }
+
+    table {
+        margin: 20px auto 30px auto;
+        width: 95%;
+        border-collapse: collapse;
+
+        tr:hover {
+            background: $bg2;
+        }
+
+        td,
+        th {
+            border-bottom: 1px solid $text1;
+            padding: 5px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.5;
+            text-decoration: none;
+            color: $text3;
+        }
+
+        th {
+            color: $text1_1;
+        }
+    }
+
+    .math {
+        color: $text1;
+    }
+
+    img{
+        max-height: 100vh;
+        max-width: 100%;
+        width: auto;
+        margin: 20px auto;
+    }
+
+}

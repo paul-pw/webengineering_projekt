@@ -1,0 +1,132 @@
+.glitch {
+  $offset1: calc(var(--GlitchOffset) * 1px);
+  $offset2: calc(var(--GlitchOffset) * -1px);
+  $shadowOffset: calc(var(--GlitchOffset) * -1px);
+  $highlight1: red;
+  $highlight2: blue;
+  position: relative;
+  display: inline-block;
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &::before {
+    transform: translateX($offset1);
+    text-shadow: $shadowOffset 0 $highlight1;
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  }
+
+  &::after {
+    transform: translateX($offset2);
+    text-shadow: $shadowOffset 0 $highlight2;
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+  }
+}
+
+// TODO refactor into mixins
+@keyframes glitch-anim {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(math.div(1,$steps)))} {
+      $top: random(100);
+      $bottom: random(101-$top);
+      clip-path: inset(#{$top} 0 #{$bottom} 0);
+    }
+  }
+}
+
+@keyframes glitch-anim-2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(math.div(1,$steps)))} {
+      $top: random(100);
+      $bottom: random(101-$top);
+      clip-path: inset(#{$top} 0 #{$bottom} 0);
+    }
+  }
+}
+
+.glitchOnce {
+  $offset1: calc(var(--GlitchOffset) * 1px);
+  $offset2: calc(var(--GlitchOffset) * -1px);
+  $shadowOffset: calc(var(--GlitchOffset) * -1px);
+  $highlight1: red;
+  $highlight2: blue;
+  position: relative;
+  display: inline-block;
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: unset;
+    height: unset;
+    overflow: hidden;
+    padding: inherit;
+    background: inherit;
+  }
+
+  &::before {
+    transform: translateX($offset1);
+    text-shadow: $shadowOffset 0 $highlight1;
+  }
+
+  &::after {
+    transform: translateX($offset2);
+    text-shadow: $shadowOffset 0 $highlight2;
+  }
+
+  &:hover::after {
+    animation: glitch-anim-short calc(var(--GlitchTime) * 0.75ms) normal linear
+      forwards;
+  }
+
+  &:hover::before {
+    animation: glitch-anim-2-short calc(var(--GlitchTime) * 1ms) normal linear
+      forwards;
+  }
+}
+
+// TODO refactor into mixins
+@keyframes glitch-anim-short {
+  $steps: 3;
+  @for $i from 0 through $steps {
+    #{percentage($i*(math.div(1,($steps+1))))} {
+      $top: random(100);
+      $bottom: random(101-$top);
+      clip-path: inset(#{$top} 0 #{$bottom} 0);
+      opacity: 1;
+    }
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes glitch-anim-2-short {
+  $steps: 3;
+  @for $i from 0 through $steps {
+    #{percentage($i*(math.div(1,($steps+1))))} {
+      $top: random(100);
+      $bottom: random(101-$top);
+      clip-path: inset(#{$top} 0 #{$bottom} 0);
+      opacity: 1;
+    }
+  }
+  100% {
+    opacity: 0;
+  }
+}

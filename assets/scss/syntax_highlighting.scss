@@ -1,0 +1,30 @@
+code {
+  font-family: "Courier New", Courier, monospace;
+  color: #c0c0c0;
+  background: #232228;
+  border-radius: 5px;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: normal;
+  padding: 0 5px 0 5px;
+}
+
+pre {
+  background: #232228 !important;
+  overflow: auto;
+  padding: 20px 25px;
+  border-radius: 5px;
+  code {
+    font-family: "Courier New", Courier, monospace;
+    color: #c0c0c0;
+    background: #232228;
+    border-radius: 5px;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: normal;
+    padding: 0 5px 0 5px;
+    color: #969696;
+    border-radius: 0;
+    background: none;
+  }
+}

@@ -1,0 +1,13 @@
+.about{
+    margin: $m_about;
+    display: flex;
+    align-items: flex-start;
+    .bioPhoto{
+        margin: 25px 35px 0 0;
+        flex-basis: 15%;
+        flex-shrink: 0;
+        flex-grow: 1;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
