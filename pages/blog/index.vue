@@ -4,8 +4,8 @@
       <h1>Coding and Photography</h1>
       <p>each is fascinating on it's own but combined they are even more fascinating  </p>
     </div>
-    <div v-for="article of articles" :key="article.slug" class="wrapper">
-      <div class="post">
+    <div class="wrapper">
+      <div v-for="article of articles" :key="article.slug" class="post">
         <div class="image">
           <div class="imgResize">
             <NuxtLink :to="{ name: 'blog-articles', params: { articles: article.slug } }">
@@ -20,22 +20,18 @@
             </h2>
           </NuxtLink>
           <p class="text">
-            {{ article.excerpt }}
+            {{ article.description }}
           </p>
         </div>
-        <!--        <div class="endInfo">
-          {% for category in post.categories limit:3 %}
-          {% if category != 'blog' and category != 'portfolio' %}
-          <div class="category">
+        <div class="endInfo">
+          <div v-for="(category, index) of article.categories" :key="index" class="category">
             {{ category }}
           </div>
-          {%endif%}
-          {% endfor %}
-        <div class="date">
-          {{ post.date | date: '%d. %B, %Y' }}
-        </div>-->
+          <div class="date">
+            {{ formatDate(article.updatedAt) }}
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   </section>
 </template>
@@ -45,12 +41,18 @@ export default {
   name: 'BlogOverview',
   async asyncData ({ $content, params }) {
     const articles = await $content('articles')
-      .only(['title', 'description', 'img', 'slug', 'author', 'path', 'updatedAt'])
+      .only(['title', 'description', 'img', 'slug', 'author', 'path', 'updatedAt', 'categories'])
       .sortBy('createdAt', 'asc')
       .fetch()
 
     return {
       articles
+    }
+  },
+  methods: {
+    formatDate (date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('en', options)
     }
   }
 }
