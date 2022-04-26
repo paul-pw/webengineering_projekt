@@ -1,5 +1,9 @@
 # klausurprojekt
 
+# Important:
+
+**Tested with NodeJs LTS v16**
+
 ## Build Setup
 
 ```bash

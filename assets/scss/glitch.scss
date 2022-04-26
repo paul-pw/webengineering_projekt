@@ -1,7 +1,7 @@
 .glitch {
-  $offset1: calc(var(--GlitchOffset) * 1px);
-  $offset2: calc(var(--GlitchOffset) * -1px);
-  $shadowOffset: calc(var(--GlitchOffset) * -1px);
+  $offset1: calc(1px * var(--GlitchOffset));
+  $offset2: calc(-1px * var(--GlitchOffset));
+  $shadowOffset: calc(-1px * var(--GlitchOffset));
   $highlight1: red;
   $highlight2: blue;
   position: relative;
@@ -31,33 +31,10 @@
   }
 }
 
-// TODO refactor into mixins
-@keyframes glitch-anim {
-  $steps: 20;
-  @for $i from 0 through $steps {
-    #{percentage($i*(math.div(1,$steps)))} {
-      $top: random(100);
-      $bottom: random(101-$top);
-      clip-path: inset(#{$top} 0 #{$bottom} 0);
-    }
-  }
-}
-
-@keyframes glitch-anim-2 {
-  $steps: 20;
-  @for $i from 0 through $steps {
-    #{percentage($i*(math.div(1,$steps)))} {
-      $top: random(100);
-      $bottom: random(101-$top);
-      clip-path: inset(#{$top} 0 #{$bottom} 0);
-    }
-  }
-}
-
 .glitchOnce {
-  $offset1: calc(var(--GlitchOffset) * 1px);
-  $offset2: calc(var(--GlitchOffset) * -1px);
-  $shadowOffset: calc(var(--GlitchOffset) * -1px);
+  $offset1: calc(1px * var(--GlitchOffset));
+  $offset2: calc(-1px * var(--GlitchOffset));
+  $shadowOffset: calc(-1px * var(--GlitchOffset));
   $highlight1: red;
   $highlight2: blue;
   position: relative;
@@ -100,11 +77,11 @@
   }
 }
 
-// TODO refactor into mixins
 @keyframes glitch-anim-short {
   $steps: 3;
   @for $i from 0 through $steps {
-    #{percentage($i*(math.div(1,($steps+1))))} {
+    $step: percentage($i * (math.div(1, ($steps + 1))));
+    #{$step} {
       $top: random(100);
       $bottom: random(101-$top);
       clip-path: inset(#{$top} 0 #{$bottom} 0);
@@ -115,18 +92,42 @@
     opacity: 0;
   }
 }
-
 @keyframes glitch-anim-2-short {
   $steps: 3;
   @for $i from 0 through $steps {
-    #{percentage($i*(math.div(1,($steps+1))))} {
-      $top: random(100);
-      $bottom: random(101-$top);
+    $step: percentage($i * (math.div(1, ($steps + 1))));
+    #{$step} {
+      $top: math.percentage(math.div(random(100), 100));
+      $bottom: math.percentage(math.div(random(101-$top), 100));
       clip-path: inset(#{$top} 0 #{$bottom} 0);
       opacity: 1;
     }
   }
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes glitch-anim {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    $step: percentage($i * (math.div(1, $steps)));
+    #{$step} {
+      $top: math.percentage(math.div(random(100), 100));
+      $bottom: math.percentage(math.div(random(101-$top), 100));
+      clip-path: inset(#{$top} 0 #{$bottom} 0);
+    }
+  }
+}
+
+@keyframes glitch-anim-2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    $step: percentage($i * (math.div(1, $steps)));
+    #{$step} {
+      $top: math.percentage(math.div(random(100), 100));
+      $bottom: math.percentage(math.div(random(101-$top), 100));
+      clip-path: inset(#{$top} 0 #{$bottom} 0);
+    }
   }
 }

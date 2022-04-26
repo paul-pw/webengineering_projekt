@@ -6,8 +6,8 @@ categories: ['Lut','Photography']
 ---
 
 a 3D LUT is a common way to post process images. LUT stands for Lookup Table, So a 3D LUT is a 3 Dimensional Lookup Table. 
+<!--more-->
 3D Luts are very popular amongst Photographers and Filmmakers because it's easy to achieve a nice look for an Image *in one click* as seen in the title image of this Post.
-
 # Why use a Lut
 Luts provide the simplest way possible to achieve a specific Look or style on your Image or movie. It's even possible to use multiple Luts on one Image.
 

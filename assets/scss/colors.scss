@@ -7,7 +7,7 @@
   --t6: #818181;
   --t7: #9b9b9b;
   --t8: #ffffff;
-  --bg: #080808;
+  --bg: #101010;
   --bg1: #000000;
   --bg2: #000000;
   --bg3: #000000;
@@ -46,4 +46,4 @@ $text5: var(--t7);
 
 $text6: var(--t8);
 
-$accent: blue; //$accent_color; //TODO ???
+$accent: rgb(103, 103, 228);

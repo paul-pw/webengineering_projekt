@@ -8,23 +8,20 @@
     <nav>
       <ul>
         <li class="nav-item">
-          <nuxt-link class="glitchOnce" to="/blog">
+          <nuxt-link class="glitchOnce" to="/blog" data-text="Blog">
             Blog
           </nuxt-link>
         </li>
         <li class="nav-item">
-          <nuxt-link class="glitchOnce" to="/portfolio">
+          <nuxt-link class="glitchOnce" to="/portfolio" data-text="Portfolio">
             Portfolio
           </nuxt-link>
         </li>
         <li class="nav-item">
-          <nuxt-link class="glitchOnce" to="/about">
+          <nuxt-link class="glitchOnce" to="/about" data-text="About">
             About
           </nuxt-link>
         </li>
-        <!--<li class="{% if link[1] == page.url %}active{% endif %}">
-          <a class="glitchOnce" data-text="{{ link[0] }}" href="{{ link[1] }}">{{ link[0] }}</a>
-        </li>-->
       </ul>
     </nav>
   </div>

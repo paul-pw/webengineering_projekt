@@ -2,7 +2,8 @@
   <div>
     <section class="blogpost">
       <h1 class="title">
-        {{ article.title }} <div class="date">
+        {{ article.title }}
+        <div class="date">
           {{ formatDate(article.updatedAt) }}
         </div>
       </h1>
@@ -25,7 +26,6 @@
 export default {
   async asyncData ({ $content, params }) {
     const article = await $content('articles', params.articles).fetch()
-    console.log(article)
     return { article }
   },
   methods: {

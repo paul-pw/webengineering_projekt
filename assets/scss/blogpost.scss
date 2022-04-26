@@ -1,76 +1,76 @@
 @function Aspect_Ratio($y, $x) {
-    @return math.div($x,$y)*100;
+  @return math.div($x, $y) * 100;
 }
 
 @mixin setAspectRatio($AspectRatio) {
-    padding-top: #{$AspectRatio+"%"};
+  padding-top: #{$AspectRatio + "%"};
 
-    .imgResize {
-        top: #{"-"+math.div($AspectRatio,4)+"%"};
+  .imgResize {
+    top: #{"-" + math.div($AspectRatio, 4) + "%"};
 
-        img {
-            height: #{math.div($AspectRatio,2)+100+"%"};
-        }
+    img {
+      height: #{math.div($AspectRatio, 2) + 100+"%"};
     }
+  }
 }
 
-.blogpost{
-    .title{
-        margin: $m_blogpost-title;
-        line-height: 1.3;
-        color: $text1;
-        font-size: 45px;
-        .date{
-            margin-top: 25px;
-            color: $text4;
+.blogpost {
+  .title {
+    margin: $m_blogpost-title;
+    line-height: 1.3;
+    color: $text1;
+    font-size: 45px;
+    .date {
+      margin-top: 25px;
+      color: $text4;
+    }
+  }
+  .titleImg {
+    animation: 0.7s ease-out 0s 1 smoothSlideIn;
+    margin: $m_blogpost-titleImg;
+    width: auto;
+    .Img {
+      @include setAspectRatio(Aspect_Ratio(2, 1));
+      //margin: 0 18% 45px 18%;
+      //width: auto;
+      position: relative;
+      overflow: hidden;
+
+      .imgResize {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+
+        img {
+          width: 100%;
+          object-fit: cover;
         }
+      }
     }
-    .titleImg{
-        animation: 0.7s ease-out 0s 1 smoothSlideIn;
-        margin: $m_blogpost-titleImg;
-        width: auto;
-        .Img{
-            @include setAspectRatio(Aspect_Ratio(2, 1));
-            //margin: 0 18% 45px 18%;
-            //width: auto;
-            position: relative;
-            overflow: hidden;
+  }
 
-            .imgResize {
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                height: 100%;
+  .content {
+    margin: $m_content;
+  }
+  .categories {
+    margin: $m_blogpost-categories;
+    text-align: center;
+    .category {
+      display: inline-block;
+      font-size: 17px;
+      background: $accent;
+      color: $text6;
+      line-height: 1;
+      padding: 5px 10px;
+      margin: auto 10px auto 0;
+      opacity: 0.9;
+      transition: $transition;
 
-                img {
-                    width: 100%;
-                    object-fit: cover;
-                }
-            }
-        }
+      &:hover {
+        opacity: 1;
+      }
     }
-
-    .content{
-        margin: $m_content;
-    }
-    .categories{
-        margin: $m_blogpost-categories;
-        text-align: center;
-        .category {
-            display: inline-block;
-            font-size: 17px;
-            background: $accent;
-            color: $text6;
-            line-height: 1;
-            padding: 5px 10px;
-            margin: auto 10px auto 0;
-            opacity: 0.9;
-            transition: $transition;
-
-            &:hover {
-                opacity: 1;
-            }
-        }
-    }
+  }
 }
