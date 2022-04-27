@@ -3,6 +3,7 @@ layout: blogpost
 title: An Introduction to 3D Luts
 img: blog/2020-04-28-lut-applied.jpg
 categories: ['Lut','Photography']
+author: 'Paul Walker'
 ---
 
 a 3D LUT is a common way to post process images. LUT stands for Lookup Table, So a 3D LUT is a 3 Dimensional Lookup Table. 

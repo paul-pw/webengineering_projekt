@@ -33,10 +33,13 @@ export default {
   ],
 
   // TODO potentially use image.nuxtjs.org
+  // TODO use nuxtjs/sitemap
+  // TODO link to rss from footer
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/content
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/feed'
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
@@ -46,6 +49,46 @@ export default {
         theme: 'prism-themes/themes/prism-one-dark.css'
       }
     }
+  },
+
+  // feed module configuration
+  feed () {
+    // config for Feed here.
+    const baseUrlArticles = 'http://localhost:3000/blog'
+    const baseLinkFeedArticles = '/feed/blog'
+    const feedFormats = {
+      rss: { type: 'rss2', file: 'rss.xml' }
+    }
+    const { $content } = require('@nuxt/content')
+
+    const createFeedArticles = async function (feed) {
+      feed.options = {
+        title: 'Coding and Photography',
+        description: 'each is fascinating on it`s own but combined they are even more fascinating ',
+        link: baseUrlArticles
+      }
+      const articles = await $content('articles').fetch()
+
+      articles.forEach((article) => {
+        const url = `${baseUrlArticles}/${article.slug}`
+
+        feed.addItem({
+          title: article.title,
+          id: url,
+          link: url,
+          // TODO date:
+          description: article.description,
+          content: article.description,
+          author: article.author
+        })
+      })
+    }
+
+    return Object.values(feedFormats).map(({ file, type }) => ({
+      path: `${baseLinkFeedArticles}/${file}`,
+      type,
+      create: createFeedArticles
+    }))
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

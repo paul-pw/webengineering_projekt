@@ -3,8 +3,7 @@ layout: blogpost
 title: Long Blogpost title, I Wonde
 img: portfolio/2020-04-14-night.jpg
 categories: ['OpenGraph','Lut','Code']
-excerpt_separator: <!--more-->
-use_math: true
+author: 'Paul Walker' 
 ---
 # Welcome to StackEdit! 
 ## Welcome to StackEdit! 
