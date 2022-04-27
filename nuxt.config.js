@@ -1,3 +1,5 @@
+import { createFeed } from './plugins/feed'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -41,8 +43,6 @@ export default {
   ],
 
   // TODO potentially use image.nuxtjs.org
-  // TODO use nuxtjs/sitemap
-  // TODO link to rss from footer
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/content
@@ -53,6 +53,7 @@ export default {
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
     markdown: {
+      // the markdown code colorscheme
       prism: {
         theme: 'prism-themes/themes/prism-one-dark.css'
       }
@@ -60,44 +61,21 @@ export default {
   },
 
   // feed module configuration // TODO rewrite this to work with npm run generate (see example here: https://content.nuxtjs.org/integrations/)
-  feed () {
-    // config for Feed here.
-    const baseUrlArticles = 'http://localhost:3000/blog'
-    const baseLinkFeedArticles = '/feed/blog'
-    const feedFormats = {
-      rss: { type: 'rss2', file: 'rss.xml' }
-    }
-    const { $content } = require('@nuxt/content')
-
-    const createFeedArticles = async function (feed) {
-      feed.options = {
-        title: 'Coding and Photography',
-        description: 'each is fascinating on it`s own but combined they are even more fascinating ',
-        link: baseUrlArticles
+  feed: [
+    {
+      path: '/blog/feed.xml',
+      create: createFeed,
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2',
+      data: {
+        title: 'Blog Title',
+        description: 'Blog description',
+        feedPath: 'blog', // path on the website
+        contentPath: 'articles', // local directory structure
+        extension: 'xml'
       }
-      const articles = await $content('articles').fetch()
-
-      articles.forEach((article) => {
-        const url = `${baseUrlArticles}/${article.slug}`
-
-        feed.addItem({
-          title: article.title,
-          id: url,
-          link: url,
-          // TODO date:
-          description: article.description,
-          content: article.description,
-          author: article.author
-        })
-      })
     }
-
-    return Object.values(feedFormats).map(({ file, type }) => ({
-      path: `${baseLinkFeedArticles}/${file}`,
-      type,
-      create: createFeedArticles
-    }))
-  },
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}

@@ -4,7 +4,7 @@
       <h1>PW</h1>
       <p>&copy; 2020 by paul walker</p>
       <div class="socials">
-        <a href="/feed/articles/rss.xml">
+        <a href="/blog/feed.xml">
           <font-awesome-icon icon="fa-solid fa-rss" class="social fa" />
         </a>
         <a href="https://www.instagram.com/instagram/">
