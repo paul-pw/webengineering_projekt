@@ -21,7 +21,10 @@ export default {
   css: ['@/assets/scss/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    // Fontawesome integration.
+    { src: '~/plugins/fontawesome.js', mode: 'client' }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -51,7 +54,7 @@ export default {
     }
   },
 
-  // feed module configuration
+  // feed module configuration // TODO rewrite this to work with npm run generate (see example here: https://content.nuxtjs.org/integrations/)
   feed () {
     // config for Feed here.
     const baseUrlArticles = 'http://localhost:3000/blog'
