@@ -1,7 +1,6 @@
 ---
-layout: portfoliopost
 title: Mountain View
-image: /images/portfolio/2019-08-19-mountains.jpg
+img: portfolio/2019-08-19-mountains.jpg
 location: South Tirol/Italy
 ---
 # South Tirol

@@ -1,7 +1,6 @@
 ---
-layout: portfoliopost
 title: Sunset Flowers
-image: /images/portfolio/2020-04-14-flowers.jpg
+img: portfolio/2020-04-14-flowers.jpg
 location: Germany
 ---
 # Sunset Flowers

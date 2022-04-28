@@ -17,7 +17,11 @@
       <div class="content">
         <nuxt-content :document="article" />
       </div>
-      <div class="categories" />
+      <div class="categories">
+        <div v-for="category_name of article.categories" :key="category_name" class="category">
+          {{ category_name }}
+        </div>
+      </div>
     </section>
   </div>
 </template>
