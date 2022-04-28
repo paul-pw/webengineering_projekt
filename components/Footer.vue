@@ -2,7 +2,7 @@
   <div class="footer">
     <section class="wrapper">
       <h1>PW</h1>
-      <p>&copy; 2020 by paul walker</p>
+      <p>&copy; 2022 by paul walker</p>
       <div class="socials">
         <a href="/blog/feed.xml">
           <font-awesome-icon icon="fa-solid fa-rss" class="social fa" />
