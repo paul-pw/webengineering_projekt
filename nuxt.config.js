@@ -16,7 +16,7 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg', sizes: 'any' }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -60,7 +60,7 @@ export default {
     }
   },
 
-  // feed module configuration // TODO rewrite this to work with npm run generate (see example here: https://content.nuxtjs.org/integrations/)
+  // feed module configuration
   feed: [
     {
       path: '/blog/feed.xml',

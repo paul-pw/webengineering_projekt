@@ -28,12 +28,13 @@ Luts can by design only store color Information. It's not possible to store any 
 # The Cube
 Any 3D Lut can be represented by an RGB Cube. Each axis is the Intensity of one color, so for example the X-axis is be the intensity or value of the red color, the Y-Axis the Blue value and the Z-axis the Green value.
 in Reality this could Look something Like this:
-![3D Lut cube](/blog/2020-04-28-3dl.svg)
+<md-image src="blog/2020-04-28-3dl.svg" alt="3D Lut cube"></md-image>
+
 
 So every color in any RGB Image is inside this Lut Cube. Now we can assign every Input color a specific output color.  
 in simple terms this means, we take a color, lets say `rgb(20,54,128)` and assign it a specific output color, say `rgb(10,50,255)`.
 when we do this for the Full Cube, it Looks something Like this:
-![Cube with Lut](/blog/2020-04-28-3dl-with-lut.svg)
+<md-image src="blog/2020-04-28-3dl-with-lut.svg" alt="Cube with Lut"></md-image>
 
 but if we store this input for every possible color in a RGB Image the output File gets big, like 16.581.375‬px big. That is to big for a simple Lut and if we use 16bit Images instead of 8bit ones the File would get even bigger, like Gigabytes big.  
 the Solution: Interpolation
@@ -43,11 +44,13 @@ With Interpolation, we don't need to specify an output color for every possible 
 
 To simplify this a bit we use just to colors for one Dimensional interpolation.  
 lets say we have an input of 2 Colors, kinda like this:
-![no Interpolation](/blog/2020-04-28-3dl-no-interpolation.svg)
+<md-image src="blog/2020-04-28-3dl-no-interpolation.svg" alt="no Interpolation"></md-image>
+
 and we want use this to perform some sort of color transform on an Image (in this case make it black and white) this would result in the Image having only two colors which is generally not what we want.
 
 So we take these two inputs and interpolate the outputs that should go in between, so something like this:
-![Interpolation](/blog/2020-04-28-3dl-interpolation.svg)
+<md-image src="blog/2020-04-28-3dl-interpolation.svg" alt="Interpolation"></md-image>
+
 
 the Interpolation of the Lut works the same but instead of using a 1 dimensional Input and thus a 1 Dimensional Interpolation as in the Example the Interpolation for the Lut has to be 3 Dimensional. And with this we can apply Luts with any sizes on our Images.  
 The most used Size probably is a 32\*32\*32 Lut.

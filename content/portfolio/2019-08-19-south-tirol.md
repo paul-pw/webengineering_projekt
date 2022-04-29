@@ -9,9 +9,9 @@ Just Like they can be seen in this Image. But opposite to what you'd think when 
 and South Tirol also isn't all about Mountains, the valleys are also quite beautiful and the figs that grow there are very delicious.
 
 ## a chapel
-When hiking somewhere midway up a mountain, we came across this small chapel.
-![small chapel](/portfolio/2019-08-19-church.jpg)
+When hiking somewhere midway up a mountain, we came across this small chapel.  
+<md-image src="portfolio/2019-08-19-church.jpg" alt="small chapel"></md-image>
 
 ## Castles
 While hiking on the Waalweg paths all around Meran, we came across lots of these small castles, they are mostly uninhabited and sadly also not open to the Public, which is sad because the view from these would probably be magnificent.
-![castle](/portfolio/2019-08-19-castle.jpg)
+<md-image src="portfolio/2019-08-19-castle.jpg" alt="castle"></md-image>
