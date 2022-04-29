@@ -1,36 +1,3 @@
-:root {
-  --t1: #ffffff;
-  --t2: #e2e2e2;
-  --t3: #dfdfdf;
-  --t4: #a0a1a5;
-  --t5: #dfdfdf;
-  --t6: #818181;
-  --t7: #9b9b9b;
-  --t8: #ffffff;
-  --bg: #101010;
-  --bg1: #000000;
-  --bg2: #000000;
-  --bg3: #000000;
-}
-
-@media screen and (prefers-color-scheme: light) {
-  :root {
-    --t1: #000000;
-    --t2: #3f3f3f;
-    --t3: #4e4e4e;
-    --t4: #5c5c5c;
-    --t5: #6b6b6b;
-    --t6: #818181;
-    --t7: #9b9b9b;
-    --t8: #f4f4f4;
-
-    --bg: #ffffff;
-    --bg1: #f4f4f4;
-    --bg2: #ebebeb;
-    --bg3: #000000;
-  }
-}
-
 $bg: var(--bg);
 $bg1: var(--bg1);
 $bg2: var(--bg2);
@@ -43,7 +10,6 @@ $text3: var(--t4);
 $text3_1: var(--t5);
 $text4: var(--t6);
 $text5: var(--t7);
-
 $text6: var(--t8);
 
 $accent: #74a4db;

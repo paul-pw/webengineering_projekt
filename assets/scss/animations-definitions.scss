@@ -1,0 +1,12 @@
+// the -definitions file includes all the css variable definitions for the file and is only '@use'd once in main.scss
+
+@keyframes smoothSlideIn {
+  0% {
+    transform: translateY(12%);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

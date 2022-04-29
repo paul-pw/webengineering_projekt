@@ -40,3 +40,70 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@use "~/assets/scss/sizes.scss";
+@use "~/assets/scss/colors.scss";
+@use "~/assets/scss/animations.scss";
+@use "~/assets/scss/aspectRatio.scss";
+
+.blogpost {
+  .title {
+    margin: sizes.$m_blogpost-title;
+    line-height: 1.3;
+    color: colors.$text1;
+    font-size: 45px;
+    .date {
+      margin-top: 25px;
+      color: colors.$text4;
+    }
+  }
+  .titleImg {
+    animation: 0.7s ease-out 0s 1 smoothSlideIn;
+    margin: sizes.$m_blogpost-titleImg;
+    width: auto;
+    .Img {
+      @include aspectRatio.setAspectRatio(aspectRatio.Aspect_Ratio(2, 1));
+      position: relative;
+      overflow: hidden;
+
+      .imgResize {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .content {
+    margin: sizes.$m_content;
+  }
+  .categories {
+    margin: sizes.$m_blogpost-categories;
+    text-align: center;
+    .category {
+      display: inline-block;
+      font-size: 17px;
+      background: colors.$accent;
+      color: colors.$text6;
+      line-height: 1;
+      padding: 5px 10px;
+      margin: auto 10px auto 0;
+      opacity: 0.9;
+      transition: animations.$transition;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+</style>

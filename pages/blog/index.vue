@@ -1,8 +1,8 @@
 <template>
   <section class="blog">
     <div class="blogTitle">
-      <h1>Coding and Photography</h1>
-      <p>each is fascinating on it's own but combined they are even more fascinating  </p>
+      <h1>Just a regular Programmer</h1>
+      <p>Just a regular Programmer writing about boring things</p>
     </div>
     <ArticleOverview :articles="articles" />
   </section>
@@ -23,3 +23,25 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@use "~/assets/scss/sizes.scss";
+@use "~/assets/scss/colors.scss";
+
+.blog {
+  white-space: wrap;
+  margin: sizes.$m_blog;
+  text-align: left;
+
+  .blogTitle {
+    margin: sizes.$m_blog-title;
+    line-height: 1.7;
+    h1 {
+      color: colors.$text1;
+    }
+    p {
+      color: colors.$text4;
+    }
+  }
+}
+</style>

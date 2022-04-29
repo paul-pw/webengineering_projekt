@@ -1,0 +1,17 @@
+@use "sass:math";
+
+@function Aspect_Ratio($y, $x) {
+  @return math.div($x, $y) * 100;
+}
+
+@mixin setAspectRatio($AspectRatio) {
+  padding-top: #{$AspectRatio + "%"};
+
+  .imgResize {
+    top: #{"-" + math.div($AspectRatio, 4) + "%"};
+
+    a img {
+      height: #{math.div($AspectRatio, 2) + 100+"%"};
+    }
+  }
+}

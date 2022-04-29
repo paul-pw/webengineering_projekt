@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .glitch {
   $offset1: calc(1px * var(--GlitchOffset));
   $offset2: calc(-1px * var(--GlitchOffset));
@@ -76,6 +78,8 @@
       forwards;
   }
 }
+
+// TODO refactor these into mixins or functions
 
 @keyframes glitch-anim-short {
   $steps: 3;

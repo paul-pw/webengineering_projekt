@@ -19,3 +19,22 @@ export default {
   name: 'AboutPage'
 }
 </script>
+
+<style lang="scss" scoped>
+@use "~/assets/scss/sizes.scss";
+@use "~/assets/scss/colors.scss";
+
+.about {
+  margin: sizes.$m_about;
+  display: flex;
+  align-items: flex-start;
+  .bioPhoto {
+    margin: 25px 35px 0 0;
+    flex-basis: 15%;
+    flex-shrink: 0;
+    flex-grow: 1;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+</style>

@@ -4,7 +4,7 @@
       <h1>Boring Landscapes</h1>
       <p>The Story of a Programmer discovering the outside World</p>
     </div>
-    <PortfolioOverview :portfolio="portfolio" /></portfoliooverview>
+    <PortfolioOverview :portfolio="portfolio" />
   </section>
 </template>
 
@@ -23,3 +23,20 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@use "~/assets/scss/sizes.scss";
+@use "~/assets/scss/colors.scss";
+
+.portfolio .portfolioTitle {
+  margin: sizes.$m_portfolio-title;
+  line-height: 1.7;
+  color: colors.$text3_1;
+  h1 {
+    color: colors.$text1;
+  }
+  p {
+    color: colors.$text4;
+  }
+}
+</style>
