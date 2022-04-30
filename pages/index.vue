@@ -4,11 +4,11 @@
       <Header />
       <div class="content" data-text="Paul Walker">
         <!--TODO title anpassen-->
-        <div class="glitch title" data-text="Page Title">
-          Page Title
+        <div class="glitch title" data-text="Hello World">
+          hello World
         </div>
-        <div class="glitch text" data-text="Page Content">
-          Page Content
+        <div class="glitch text" data-text="printf(&quot;hello World&quot;);">
+          printf("hello World");
         </div>
       </div>
       <a class="downArrow" href="#blog" />
