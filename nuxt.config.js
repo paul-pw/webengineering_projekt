@@ -2,7 +2,7 @@ import { createFeed } from './plugins/feed'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server', // TODO change back to static after Project is handed in.
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -33,8 +33,7 @@ export default {
     '~/plugins/fontawesome.js'
   ],
 
-  // server Middleware that also runs in static site generation mode // TODO because of this little shit the server has to be dynamic and I cant use static site generation anymore. sigh...
-  // TODO anyway. because of this the site has to be converted to a dynamic site.
+  // server Middleware that also runs in static site generation mode
   serverMiddleware: [
     // Proxy for Wikipedia
     { path: '/proxy', handler: '~/server-middleware/proxy.js' }
