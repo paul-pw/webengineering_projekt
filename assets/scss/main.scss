@@ -200,10 +200,6 @@ img {
     width: 95%;
     border-collapse: collapse;
 
-    tr:hover {
-      background: colors.$bg2;
-    }
-
     td,
     th {
       border-bottom: 1px solid colors.$text1;

@@ -1,32 +1,38 @@
 <template>
   <div>
     <button class="wikiSearch" type="button" @click="show = !show">
-      Wikipedia Search
+      toggle Wikipedia Search
       <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
     </button>
     <div v-if="show">
-      <input v-model="searchText" placeholder="Search Wikipedia">
-      <button class="wikiSearch" type="button" @click="fetchArticles(searchText)">
+      <input v-model="searchText" placeholder="Search Wikipedia" class="wikiInput">
+      <button
+        class="wikiSearch"
+        type="button"
+        @click="fetchArticles(searchText)"
+      >
         Go
       </button>
-      <table>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Extract</th>
-          <th>Link</th>
-        </tr>
-        <tr v-for="article in articles" :key="article.pageid">
-          <td>{{ article.title }}</td>
-          <td>{{ article.description }}</td>
-          <td>{{ article.extract }}</td>
-          <td>
-            <a
-              :href="`https://de.wikipedia.org/?curid=${article.pageid}`"
-            > https://de.wikipedia.org/?curid={{ article.pageid }} </a>
-          </td>
-        </tr>
-      </table>
+      <div class="fixSizeTable">
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Extract</th>
+            <th>Link</th>
+          </tr>
+          <tr v-for="article in articles" :key="article.pageid">
+            <td>{{ article.title }}</td>
+            <td>{{ article.description }}</td>
+            <td>{{ article.extract }}</td>
+            <td>
+              <a :href="`https://de.wikipedia.org/?curid=${article.pageid}`">
+                https://de.wikipedia.org/?curid={{ article.pageid }}
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </template>>
@@ -43,8 +49,9 @@ export default {
   },
   methods: {
     async fetchArticles (query) {
+      const maxArticles = 10
       const res = await fetch(
-        `/proxy/?https://de.wikipedia.org/w/api.php?action=query&generator=prefixsearch&format=json&gpslimit=4&prop=extracts%7Cdescription&exintro=1&explaintext=1&exsentences=3&redirects=1&gpssearch=${query}`
+        `/proxy/?https://de.wikipedia.org/w/api.php?action=query&generator=prefixsearch&format=json&gpslimit=${maxArticles}&prop=extracts%7Cdescription&exintro=1&explaintext=1&exsentences=3&redirects=1&gpssearch=${query}`
       ).then(res => res.json())
 
       if (res.error == null) {
@@ -60,16 +67,32 @@ export default {
 <style lang="scss" scoped>
 @use "~/assets/scss/colors.scss";
 
-.wikiSearch{
+.wikiSearch {
   background-color: colors.$accent;
   color: colors.$text1;
   padding: 10px;
   border-radius: 5px;
   border: none;
+  margin-bottom: 10px;
 }
 
-table{
-  height: 100px;
-  background-color: blue;
+.wikiInput{
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.fixSizeTable {
+  max-height: 50vh;
+  min-height: fit-content;
+  overflow-y: scroll;
+  display: block;
+  margin: 20px auto 30px auto;
+  width: 95%;
+
+  table {
+    background-color: colors.$bg;
+    margin: 0;
+    width: 100%;
+  }
 }
 </style>

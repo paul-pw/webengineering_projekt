@@ -152,13 +152,14 @@ export default {
         font-size: 18px;
         line-height: 1.5;
         font-weight: 600;
+
+        // the underline animation is a background image (a sharp gradient) that looks like a line and is animated in on hover
         .underline {
           color: inherit;
           font-family: inherit;
           font-size: inherit;
           line-height: inherit;
           font-weight: inherit;
-          //width: calc(100%);
           background-image: linear-gradient(
             180deg,
             transparent 87%,

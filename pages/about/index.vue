@@ -35,6 +35,7 @@ export default {
     flex-grow: 1;
     border-radius: 50%;
     object-fit: cover;
+    max-width: 150px;
   }
 }
 </style>
