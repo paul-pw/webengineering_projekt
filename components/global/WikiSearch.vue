@@ -54,9 +54,9 @@ export default {
         `/proxy/?https://de.wikipedia.org/w/api.php?action=query&generator=prefixsearch&format=json&gpslimit=${maxArticles}&prop=extracts%7Cdescription&exintro=1&explaintext=1&exsentences=3&redirects=1&gpssearch=${query}`
       ).then(res => res.json())
 
-      if (res.error == null) {
+      try {
         this.articles = Object.values(res.response.query.pages)
-      } else {
+      } catch {
         this.articles = []
       }
     }

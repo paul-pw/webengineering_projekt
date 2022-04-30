@@ -13,8 +13,8 @@ export default {
   name: 'BlogOverview',
   async asyncData ({ $content, params }) {
     const articles = await $content('articles')
-      .only(['title', 'description', 'img', 'slug', 'author', 'path', 'updatedAt', 'categories'])
-      .sortBy('createdAt', 'asc')
+      .only(['title', 'description', 'img', 'slug', 'author', 'path', 'createdAt', 'categories'])
+      .sortBy('createdAt', 'desc')
       .fetch()
 
     return {

@@ -52,13 +52,13 @@ export default {
   async asyncData ({ $content, params }) {
     const portfolio = await $content('portfolio')
       .only(['title', 'img', 'location', 'slug', 'path'])
-      .sortBy('createdAt', 'asc')
+      .sortBy('createdAt', 'desc')
       .limit(4)
       .fetch()
 
     const articles = await $content('articles')
       .only(['title', 'description', 'img', 'slug', 'author', 'path', 'updatedAt', 'categories'])
-      .sortBy('createdAt', 'asc')
+      .sortBy('createdAt', 'desc')
       .limit(3)
       .fetch()
 

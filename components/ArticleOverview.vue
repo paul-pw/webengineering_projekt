@@ -40,7 +40,7 @@
           {{ category }}
         </div>
         <div class="date">
-          {{ formatDate(article.updatedAt) }}
+          {{ formatDate(article.createdAt) }}
         </div>
       </div>
     </div>
