@@ -24,6 +24,7 @@ $\lambda$
 >asdlfkj  
 >ölksdjfölaskjdf  
 
+<wiki-search></wiki-search>
 
 # Files
 

@@ -33,6 +33,13 @@ export default {
     '~/plugins/fontawesome.js'
   ],
 
+  // server Middleware that also runs in static site generation mode // TODO because of this little shit the server has to be dynamic and I cant use static site generation anymore. sigh...
+  // TODO anyway. because of this the site has to be converted to a dynamic site.
+  serverMiddleware: [
+    // Proxy for Wikipedia
+    { path: '/proxy', handler: '~/server-middleware/proxy.js' }
+  ],
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
