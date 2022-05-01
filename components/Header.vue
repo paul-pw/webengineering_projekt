@@ -98,5 +98,12 @@ export default {
       background: unset;
     }
   }
+
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+    nav{
+      margin: 10px auto 0 auto;
+    }
+  }
 }
 </style>

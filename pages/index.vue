@@ -2,15 +2,10 @@
   <div>
     <section class="homeInfo">
       <Header />
-      <div class="content" data-text="Paul Walker">
-        <!--TODO title anpassen-->
-        <div class="glitch title" data-text="Hello World">
-          hello World
-        </div>
-        <div class="glitch text" data-text="printf(&quot;hello World&quot;);">
-          printf("hello World");
-        </div>
+      <div class="glitch title" data-text="Hello World">
+        Hello World
       </div>
+
       <a class="downArrow" href="#blog" />
     </section>
     <section id="blog" class="blogWrapper">
@@ -57,7 +52,7 @@ export default {
       .fetch()
 
     const articles = await $content('articles')
-      .only(['title', 'description', 'img', 'slug', 'author', 'path', 'updatedAt', 'categories'])
+      .only(['title', 'description', 'img', 'slug', 'author', 'path', 'createdAt', 'categories'])
       .sortBy('createdAt', 'desc')
       .limit(3)
       .fetch()
@@ -91,10 +86,6 @@ export default {
     margin: 0;
     display: block;
 
-    .title {
-      display: none;
-    }
-
     nav {
       ul {
         text-align: center;
@@ -108,7 +99,7 @@ export default {
     }
   }
 
-  .content {
+  .title {
     position: absolute;
     text-align: center;
     top: 50%;
@@ -118,27 +109,16 @@ export default {
     font-style: italic;
     text-transform: uppercase;
     color: colors.$text1;
-    .title {
-      &.glitch {
-        --GlitchOffset: 3;
-      }
-
-      font-family: Arial, Helvetica, sans-serif;
-      font-style: italic;
-      font-size: 150px;
-      white-space: nowrap;
+    width: 90%;
+    &.glitch {
+      --GlitchOffset: 3;
     }
 
-    .text {
-      margin-top: 5px;
-      white-space: normal;
-      width: 80%;
-
-      &.glitch {
-        --GlitchOffset: 0.4;
-      }
-    }
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: sizes.$titleFontSize;
   }
+
   .downArrow {
     position: absolute;
     bottom: 50px;

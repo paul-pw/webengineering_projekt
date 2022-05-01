@@ -19,6 +19,7 @@
   --m_portfoliopost-titleImg: 0 2% 45px 2%;
   --m_footer: 50px 0 0 0;
   --p_footer: 25px 25% 40px 25%;
+  --t_titleSize: 150px;
 }
 
 @media only screen and (max-width: 1150px) {
@@ -26,20 +27,28 @@
     --m_header: 50px 100px 0 100px;
     --m_about: 45px 10% 0 10%;
     --m_blog: 0 30px;
-    --m_blog-title: 50px 5%;
     --m_blogpost-title: 75px 10% 50px 10%;
     --m_blogpost-titleImg: 0 5% 45px 5%;
     --m_content: 0 10%;
-    --m_blogpost-categories: 50px 25%;
-    --m_default: 45px 0 0 0;
-    --m_home-homeInfo: 60px 14% 10px 14%;
-    --m_home-title: 50px 0 45px 10%;
-    --m_home-line: 0 14%;
-    --m_home-portfolioWrapper: 0 2%;
-    --m_portfolio: 0 2%;
-    --m_portfolio-title: 50px 15%;
-    --m_portfoliopost-titleImg: 0 2% 45px 2%;
-    --m_footer: 50px 0 0 0;
-    --p_footer: 25px 25% 40px 25%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  :root {
+    --t_titleSize: 85px;
+    --p_footer: 25px 5% 40px 5%;
+    --m_header: 50px 5% 0 5%;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  :root {
+    --t_titleSize: 85px;
+  }
+}
+
+@media only screen and (max-height: 400px) {
+  :root {
+    --t_titleSize: 75px;
   }
 }

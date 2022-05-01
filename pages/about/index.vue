@@ -37,5 +37,12 @@ export default {
     object-fit: cover;
     max-width: 150px;
   }
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+    .bioPhoto{
+      margin: 0 auto 0 auto;
+    }
+  }
 }
+
 </style>

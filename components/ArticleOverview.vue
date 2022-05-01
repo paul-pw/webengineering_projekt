@@ -32,12 +32,14 @@
         </p>
       </div>
       <div class="endInfo">
-        <div
-          v-for="(category, index) of article.categories"
-          :key="index"
-          class="category"
-        >
-          {{ category }}
+        <div>
+          <div
+            v-for="(category, index) of article.categories"
+            :key="index"
+            class="category"
+          >
+            {{ category }}
+          </div>
         </div>
         <div class="date">
           {{ formatDate(article.createdAt) }}
@@ -74,7 +76,6 @@ export default {
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   grid-gap: 30px;
   :first-child.post {
     grid-column: 1/3;
@@ -94,22 +95,10 @@ export default {
       @include aspectRatio.setAspectRatio(aspectRatio.Aspect_Ratio(16, 9));
     }
   }
+
   :nth-child(n + 2):nth-child(-n + 3) {
     .excerpt .text {
-      // only show excerpt for first post
       display: none;
-    }
-    .endInfo {
-      margin-top: auto;
-      padding: 20px 16px;
-      display: flex;
-      flex-wrap: wrap-reverse;
-      :last-child {
-        width: 100%;
-        padding: 5px 0 5px 5px;
-        flex-grow: 0;
-        flex-shrink: 0;
-      }
     }
     .image {
       @include aspectRatio.setAspectRatio(aspectRatio.Aspect_Ratio(2, 1));
@@ -188,6 +177,7 @@ export default {
       padding: 20px 16px;
       display: flex;
       .category {
+        display: inline-block;
         font-size: 17px;
         background: colors.$accent;
         color: colors.$text6;
@@ -200,6 +190,7 @@ export default {
           opacity: 1;
         }
       }
+
       .date {
         font-size: 15px;
         bottom: 5px;
@@ -210,6 +201,28 @@ export default {
     }
     &:hover .title .underline {
       background-size: 100% 100%;
+    }
+
+  }
+
+  @media only screen and (max-width: 700px) {
+    grid-template-columns: 1fr;
+    :first-child.post {
+      grid-column: 1/1;
+      grid-row: 1/1;
+    }
+    :nth-child(n + 2):nth-child(-n + 3) {
+      .excerpt .text {
+        display: initial;
+      }
+    }
+
+    .post .endInfo{
+      flex-direction: column;
+      .date{
+        margin: 2px 0 0 0;
+        align-self: flex-start;
+      }
     }
   }
 }
