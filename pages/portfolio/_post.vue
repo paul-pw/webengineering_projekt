@@ -71,7 +71,7 @@ export default {
 
   .content {
     position: relative;
-    margin: 0 25%;
+    margin: sizes.$m_content;
   }
 }
 </style>

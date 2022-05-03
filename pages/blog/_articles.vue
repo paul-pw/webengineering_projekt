@@ -128,7 +128,7 @@ export default {
       color: colors.$text6;
       line-height: 1;
       padding: 5px 10px;
-      margin: auto 10px auto 0;
+      margin: 5px;
       opacity: 0.9;
       transition: animations.$transition;
 

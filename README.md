@@ -21,6 +21,17 @@ $ npm run start
 $ npm run generate
 ```
 
+**with docker**
+```bash
+# in this directory
+
+# build container
+docker build . -t webengeneering-klausurprojekt
+
+# run container
+docker run -p 3000:3000 -d webengeneering-klausurprojekt
+```
+
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
 ## Special Directories
