@@ -14,6 +14,7 @@
     <div class="content">
       <nuxt-content :document="post" />
     </div>
+    <NextPrev :prev="prev" :next="next" />
   </section>
 </template>
 
@@ -21,7 +22,15 @@
 export default {
   async asyncData ({ $content, params }) {
     const post = await $content('portfolio', params.post).fetch()
-    return { post }
+
+    // get the previous and the next portfolio post
+    const [prev, next] = await $content('portfolio')
+      .only(['title', 'slug'])
+      .sortBy('createdAt', 'asc')
+      .surround(params.post)
+      .fetch()
+
+    return { post, next, prev }
   },
   methods: {
     formatDate (date) {

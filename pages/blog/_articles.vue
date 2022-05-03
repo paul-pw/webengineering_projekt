@@ -1,41 +1,74 @@
 <template>
-  <div>
-    <section class="blogpost">
-      <h1 class="title">
-        {{ article.title }}
-        <div class="date">
-          {{ formatDate(article.updatedAt) }}
-        </div>
-      </h1>
-      <div class="titleImg">
-        <div class="Img">
-          <div class="imgResize">
-            <img :src="require(`~/assets/images/${article.img}`)" loading="eager">
-          </div>
-        </div>
+  <section class="blogpost">
+    <h1 class="title">
+      {{ article.title }}
+      <div class="date">
+        {{ formatDate(article.updatedAt) }}
       </div>
-      <div class="content">
-        <nuxt-content :document="article" />
-      </div>
-      <div class="categories">
-        <div v-for="category_name of article.categories" :key="category_name" class="category">
-          {{ category_name }}
+      <button
+        type="button"
+        @click="readArticle(article)"
+      >
+        read Article
+      </button>
+    </h1>
+    <div class="titleImg">
+      <div class="Img">
+        <div class="imgResize">
+          <img :src="require(`~/assets/images/${article.img}`)" loading="eager">
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+    <div class="content">
+      <nuxt-content :document="article" />
+    </div>
+    <NextPrev :prev="prev" :next="next" />
+    <div class="categories">
+      <div v-for="category_name of article.categories" :key="category_name" class="category">
+        {{ category_name }}
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
   async asyncData ({ $content, params }) {
     const article = await $content('articles', params.articles).fetch()
-    return { article }
+
+    // get the previous and the next post
+    const [prev, next] = await $content('articles')
+      .only(['title', 'slug'])
+      .sortBy('createdAt', 'asc')
+      .surround(params.articles)
+      .fetch()
+
+    return { article, prev, next }
   },
   methods: {
     formatDate (date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('en', options)
+    },
+    readArticle (article) {
+      const data = article.body.children
+      const getText = function (test) {
+        return test.map(function (input) {
+          if (input.type === 'text') {
+            return input.value
+          }
+          if (input.tag === 'p') {
+            return getText(input.children).join('')
+          }
+          return getText(input.children)
+        }).flat()
+      }
+      const text = getText(data)
+      // console.log(text)
+      const speech = text.map(line => new SpeechSynthesisUtterance(line))
+      for (const i in speech) {
+        speechSynthesis.speak(speech[i])
+      }
     }
   }
 }
