@@ -4,6 +4,11 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server', // TODO change back to static after Project is handed in.
 
+  server: {
+    host: '0.0.0.0', // use 0.0.0.0 instead of localhost for docker to work
+    port: 3000
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'klausurprojekt',
