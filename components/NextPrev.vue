@@ -38,7 +38,7 @@ export default {
 @use "~/assets/scss/animations.scss";
 
 .nextPrev {
-  color: colors.$text1;
+  color: colors.$text2;
   margin: 0 10% 0 10%;
   display: flex;
   .next,

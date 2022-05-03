@@ -5,12 +5,7 @@
       <div class="date">
         {{ formatDate(article.updatedAt) }}
       </div>
-      <button
-        type="button"
-        @click="readArticle(article)"
-      >
-        read Article
-      </button>
+      <ReaderControlls :text-array="plaintextArr" />
     </h1>
     <div class="titleImg">
       <div class="Img">
@@ -43,32 +38,27 @@ export default {
       .surround(params.articles)
       .fetch()
 
-    return { article, prev, next }
+    // get Plaintext Array from article
+    const body = article.body.children
+    const getPlaintextArr = function (body) {
+      return body.map(function (input) {
+        if (input.type === 'text') {
+          return input.value
+        }
+        if (input.tag === 'p') {
+          return getPlaintextArr(input.children).join('')
+        }
+        return getPlaintextArr(input.children)
+      }).flat()
+    }
+    const plaintextArr = getPlaintextArr(body)
+
+    return { article, prev, next, plaintextArr }
   },
   methods: {
     formatDate (date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('en', options)
-    },
-    readArticle (article) {
-      const data = article.body.children
-      const getText = function (test) {
-        return test.map(function (input) {
-          if (input.type === 'text') {
-            return input.value
-          }
-          if (input.tag === 'p') {
-            return getText(input.children).join('')
-          }
-          return getText(input.children)
-        }).flat()
-      }
-      const text = getText(data)
-      // console.log(text)
-      const speech = text.map(line => new SpeechSynthesisUtterance(line))
-      for (const i in speech) {
-        speechSynthesis.speak(speech[i])
-      }
     }
   }
 }
