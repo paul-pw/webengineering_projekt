@@ -29,32 +29,39 @@ export default {
     textArray: {
       type: Array,
       required: true
+    },
+    lang: {
+      type: String,
+      default: 'en-US'
     }
   },
   data () {
-    const speech = this.textArray.map(line => new SpeechSynthesisUtterance(line))
-
-    const hasContent = speech.length !== 0
-
-    // fire event after the last utterance is read. and reset reading and paused.
-    if (hasContent) {
-      speech[speech.length - 1].addEventListener('end', (event) => {
-        this.paused = false
-        this.reading = false
-      })
-    }
-
+    const hasContent = this.textArray.length !== 0
     return {
       hasContent,
-      speech,
       paused: false,
       reading: false
     }
   },
   methods: {
     readLines () {
-      for (const i in this.speech) {
-        speechSynthesis.speak(this.speech[i])
+      // create speech snippets from text array
+      const speech = this.textArray.map(line => new SpeechSynthesisUtterance(line))
+      // set lang on speech snippets
+      speech.forEach((element) => {
+        element.lang = this.lang
+      })
+
+      // fire event after the last utterance is read. and reset reading and paused.
+      if (this.hasContent) {
+        speech[speech.length - 1].addEventListener('end', (event) => {
+          this.paused = false
+          this.reading = false
+        })
+      }
+
+      for (const i in speech) {
+        speechSynthesis.speak(speech[i])
       }
     },
     readOrStop () {

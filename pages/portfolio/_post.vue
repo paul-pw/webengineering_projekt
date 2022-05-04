@@ -7,6 +7,8 @@
         <span class="date">{{ formatDate(post.createdAt) }}</span>
         <span class="location"> - {{ post.location }}</span>
       </div>
+      <!--TODO: position this better-->
+      <ReaderControlls :text-array="plaintextArr" />
     </h1>
     <div class="titleImg">
       <img :src="require(`~/assets/images/${post.img}`)" loading="eager">
@@ -19,6 +21,8 @@
 </template>
 
 <script>
+import { formatDate } from '~/js/formatDate'
+import { articleToPlaintextArr } from '~/js/articleToPlaintext'
 export default {
   async asyncData ({ $content, params }) {
     const post = await $content('portfolio', params.post).fetch()
@@ -30,13 +34,12 @@ export default {
       .surround(params.post)
       .fetch()
 
-    return { post, next, prev }
+    const plaintextArr = articleToPlaintextArr(post)
+
+    return { post, next, prev, plaintextArr }
   },
   methods: {
-    formatDate (date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
-    }
+    formatDate
   }
 }
 </script>

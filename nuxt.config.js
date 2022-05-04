@@ -1,4 +1,4 @@
-import { createFeed } from './plugins/feed'
+import { createFeed } from './js/feed'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target

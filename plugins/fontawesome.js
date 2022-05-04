@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import { library, config } from '@fortawesome/fontawesome-svg-core'
+
+// import the used icons in the Project
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
   faRss, faMagnifyingGlass, faArrowLeft,

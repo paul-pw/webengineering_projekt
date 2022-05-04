@@ -5,6 +5,7 @@
       <div class="date">
         {{ formatDate(article.updatedAt) }}
       </div>
+      <!--TODO: position this better-->
       <ReaderControlls :text-array="plaintextArr" />
     </h1>
     <div class="titleImg">
@@ -27,6 +28,8 @@
 </template>
 
 <script>
+import { formatDate } from '~/js/formatDate'
+import { articleToPlaintextArr } from '~/js/articleToPlaintext'
 export default {
   async asyncData ({ $content, params }) {
     const article = await $content('articles', params.articles).fetch()
@@ -38,28 +41,12 @@ export default {
       .surround(params.articles)
       .fetch()
 
-    // get Plaintext Array from article
-    const body = article.body.children
-    const getPlaintextArr = function (body) {
-      return body.map(function (input) {
-        if (input.type === 'text') {
-          return input.value
-        }
-        if (input.tag === 'p') {
-          return getPlaintextArr(input.children).join('')
-        }
-        return getPlaintextArr(input.children)
-      }).flat()
-    }
-    const plaintextArr = getPlaintextArr(body)
+    const plaintextArr = articleToPlaintextArr(article)
 
     return { article, prev, next, plaintextArr }
   },
   methods: {
-    formatDate (date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
-    }
+    formatDate
   }
 }
 </script>
