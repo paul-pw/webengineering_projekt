@@ -6,7 +6,6 @@
         {{ formatDate(article.updatedAt) }}
       </div>
       <!--TODO: position this better-->
-      <ReaderControlls :text-array="plaintextArr" />
     </h1>
     <div class="titleImg">
       <div class="Img">
@@ -15,6 +14,7 @@
         </div>
       </div>
     </div>
+    <ReaderControlls :text-array="plaintextArr" />
     <div class="content">
       <nuxt-content :document="article" />
     </div>

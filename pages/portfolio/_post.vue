@@ -8,11 +8,11 @@
         <span class="location"> - {{ post.location }}</span>
       </div>
       <!--TODO: position this better-->
-      <ReaderControlls :text-array="plaintextArr" />
     </h1>
     <div class="titleImg">
       <img :src="require(`~/assets/images/${post.img}`)" loading="eager">
     </div>
+    <ReaderControlls :text-array="plaintextArr" />
     <div class="content">
       <nuxt-content :document="post" />
     </div>

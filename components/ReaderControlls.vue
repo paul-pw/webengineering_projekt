@@ -92,6 +92,8 @@ export default {
 
 .reader {
   $buttonIcon_size: 15px;
+  width: fit-content;
+  margin: 0 auto 0 auto;
   button, div{
     border: none;
     display: inline-block;
