@@ -98,11 +98,12 @@ export default {
     border: none;
     display: inline-block;
     border-radius: 50%;
+    padding: 0;
   }
   .buttonIcon {
     border-radius: 50%;
     display: block;
-    padding: 10px;
+    padding: 13px;
     font-size: $buttonIcon_size;
     width: $buttonIcon_size;
     text-align: center;

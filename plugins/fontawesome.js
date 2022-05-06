@@ -5,7 +5,9 @@ import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
   faRss, faMagnifyingGlass, faArrowLeft,
-  faArrowRight, faHeadphones, faStop, faPlay, faPause
+  faArrowRight, faHeadphones, faStop, faPlay, faPause,
+  faSun, faCloudSun, faCloud, faCloudShowersHeavy, faCloudSunRain,
+  faCloudBolt, faSnowflake, faSmog
 } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 
@@ -14,7 +16,9 @@ config.autoAddCss = false
 
 // add the nescesary icons
 library.add(faRss, faInstagram, faGithub, faMagnifyingGlass, faArrowLeft,
-  faArrowRight, faHeadphones, faStop, faPlay, faPause)
+  faArrowRight, faHeadphones, faStop, faPlay, faPause,
+  faSun, faCloudSun, faCloud, faCloudShowersHeavy, faCloudSunRain,
+  faCloudBolt, faSnowflake, faSmog)
 
 // Register the component globally
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)

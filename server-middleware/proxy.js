@@ -50,7 +50,7 @@ app.all('/weather', async function (req, res) {
   const lat = response[0].lat
   const lon = response[0].lon
 
-  const weatherQuery = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${apiKey}`
+  const weatherQuery = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,alerts&appid=${apiKey}`
   fetch(weatherQuery, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }

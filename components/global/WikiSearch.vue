@@ -5,7 +5,7 @@
       <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
     </button>
     <div v-if="show">
-      <input v-model="searchText" placeholder="Search Wikipedia" class="wikiInput">
+      <input v-model="searchText" placeholder="Search Wikipedia">
       <button
         class="wikiSearch"
         type="button"
@@ -68,17 +68,7 @@ export default {
 @use "~/assets/scss/colors.scss";
 
 .wikiSearch {
-  background-color: colors.$accent;
-  color: colors.$text1;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
   margin-bottom: 10px;
-}
-
-.wikiInput{
-  padding: 10px;
-  border-radius: 5px;
 }
 
 .fixSizeTable {
