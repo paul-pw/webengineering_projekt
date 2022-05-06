@@ -1,6 +1,6 @@
 ---
 title: Wikipedia Demo
-img: portfolio/2019-06-16-moonrise.jpg
+img: blog/2022-05-06-poppies.jpg
 alt: wikipedia demo
 categories: ['webengeneering', 'vue', 'nuxt', 'wikipedia']
 ---
