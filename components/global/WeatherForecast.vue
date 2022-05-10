@@ -17,6 +17,9 @@
         <p class="description">
           {{ day.weather[0].description }}
         </p>
+        <p>
+          {{ day.temp.day }}°C
+        </p>
         <i>
           {{ formatDate(day.dt) }}
         </i>

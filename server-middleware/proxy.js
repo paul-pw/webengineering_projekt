@@ -1,4 +1,5 @@
 const express = require('express') // critical module for building a Web Server App
+require('dotenv').config()
 // Here are some basic packages we need together with express
 const bodyParser = require('body-parser') // helper routines to parse data as JSON in request body
 const fetch = require('node-fetch') // http Server requests similar to the Client Version
@@ -33,7 +34,7 @@ app.all('/', function (req, res) {
 app.all('/weather', async function (req, res) {
   const decompose = req.originalUrl.split('?')
   const city = decompose[1]
-  const apiKey = 'ee6d9c3939d7eda6bb96fdfb6cf75219' // TODO move to env
+  const apiKey = process.env.openWeather
   const locationQuery = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
   const response = await fetch(locationQuery, {
     method: 'GET',
