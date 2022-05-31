@@ -7,7 +7,6 @@
         <span class="date">{{ formatDate(post.createdAt) }}</span>
         <span class="location"> - {{ post.location }}</span>
       </div>
-      <!--TODO: position this better-->
     </h1>
     <div class="titleImg">
       <img :src="require(`~/assets/images/${post.img}`)" loading="eager">

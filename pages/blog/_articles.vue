@@ -5,7 +5,6 @@
       <div class="date">
         {{ formatDate(article.updatedAt) }}
       </div>
-      <!--TODO: position this better-->
     </h1>
     <div class="titleImg">
       <div class="Img">

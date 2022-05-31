@@ -2,7 +2,7 @@ import { createFeed } from './js/feed'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'server', // TODO change back to static after Project is handed in.
+  target: 'server',
 
   server: {
     host: '0.0.0.0', // use 0.0.0.0 instead of localhost for docker to work
@@ -53,7 +53,6 @@ export default {
     '@nuxtjs/eslint-module'
   ],
 
-  // TODO potentially use image.nuxtjs.org
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/content

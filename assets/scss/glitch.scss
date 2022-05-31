@@ -79,8 +79,6 @@
   }
 }
 
-// TODO refactor these into mixins or functions
-
 @keyframes glitch-anim-short {
   $steps: 3;
   @for $i from 0 through $steps {
